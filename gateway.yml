@@ -5,10 +5,10 @@ spring:
    gateway: 
     routes:
       - id: catalog
-        uri: http://localhost:7777
+        uri: http://localhost:7777/
         predicates:
           - Path=/product/**
       - id: cart
-        uri: http://localhost:8888
+        uri: http://localhost:8888/
         predicates:
           - Path=/cart/**
