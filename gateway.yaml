@@ -1,19 +1,27 @@
 # Este archivo es para el ejercicio 19
+# Con Spring 3.x la ruta era
+# spring:
+#   cloud: 
+#    gateway: 
+#      routes:
+
 server:
   port: 8081
 spring:
   cloud: 
-   gateway: 
-    routes:
-      - id: catalog
-        uri: lb://catalog/
-        predicates:
-          - Path=/product/**
-      - id: cart
-        uri: lb://cart/
-        predicates:
-          - Path=/cart/**
-      - id: cartCB
-        uri: lb://cartCB/
-        predicates:
-          - Path=/cartCB/**          
+   gateway:
+    server:
+     webmvc:
+       routes:
+         - id: catalog
+           uri: lb://catalog/
+           predicates:
+             - Path=/product/**
+         - id: cart
+           uri: lb://cart/
+           predicates:
+             - Path=/cart/**
+         - id: cartCB
+           uri: lb://cartCB/
+           predicates:
+             - Path=/cartCB/**          
